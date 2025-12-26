@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpswkdux1qop0"]
+
+[ext_resource type="PackedScene" uid="uid://b2k8p2oov605b" path="res://player.tscn" id="1_qpbfv"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ht7bo"]
+albedo_color = Color(6.016344e-06, 0.691795, 0.23440287, 1)
+
+[node name="tmp_world" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(8.195, 0.015, 7.35)
+material = SubResource("ORMMaterial3D_ht7bo")
+
+[node name="Player" parent="." instance=ExtResource("1_qpbfv")]
+transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 0.2971464, 0)
