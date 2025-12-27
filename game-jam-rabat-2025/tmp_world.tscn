@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpswkdux1qop0"]
+[gd_scene load_steps=8 format=3 uid="uid://cpswkdux1qop0"]
 
 [ext_resource type="PackedScene" uid="uid://b2k8p2oov605b" path="res://player.tscn" id="1_qpbfv"]
+[ext_resource type="PackedScene" uid="uid://cd0k8xemjuin7" path="res://enemy.tscn" id="2_ht7bo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qpbfv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -36,9 +37,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003499627, 0.06250206, 0.2
 use_collision = true
 size = Vector3(8.195, 0.015, 7.35)
 material = SubResource("ORMMaterial3D_ht7bo")
-
-[node name="Player" parent="." instance=ExtResource("1_qpbfv")]
-transform = Transform3D(0.175, 0, 0, 0, 0.175, 0, 0, 0, 0.175, 0, 1.7444553, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(-2.2074238e-08, 22.539007, 0, -0.50499964, -9.852114e-07, 0, 0, 0, 0.505, 3.9010785, -0.08950037, 0.12360525)
@@ -78,3 +76,9 @@ size = Vector3(1.0556641, 0.22961426, 1)
 transform = Transform3D(1.0312883, 0, 0, 0, 3.2908897, 0, 0, 0, 1.0312883, 0.79853654, 0.48629552, 1.2578807)
 use_collision = true
 size = Vector3(1.0556641, 0.27252197, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_qpbfv")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.0771518, 2.524628, 0)
+
+[node name="enemy" parent="." instance=ExtResource("2_ht7bo")]
+transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 0, 1.3565845, -1.8178501)
