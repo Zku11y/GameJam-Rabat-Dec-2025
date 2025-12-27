@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://6vouiiyq8bso"]
+
+[ext_resource type="Script" uid="uid://36qxxiryrk3s" path="res://gun.gd" id="1_vk1bi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r8ywq"]
+
+[sub_resource type="Animation" id="Animation_vk1bi"]
+resource_name = "shoot"
+length = 0.183
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.029061256, 0.08715669),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.095), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dk5gl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kw0bs"]
+_data = {
+&"RESET": SubResource("Animation_dk5gl"),
+&"shoot": SubResource("Animation_vk1bi")
+}
+
+[node name="gun" type="Node3D"]
+script = ExtResource("1_vk1bi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.20617092, 0, 0, 0, 0.25285178, 0, 0, 0, 0.8464816, 0, 0, 0)
+mesh = SubResource("BoxMesh_r8ywq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kw0bs")
+}

@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://g8od13j8vo5k"]
+[gd_scene load_steps=8 format=3 uid="uid://g8od13j8vo5k"]
 
 [ext_resource type="Script" uid="uid://b821osoenppd8" path="res://weapon.gd" id="1_swcir"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swcir"]
+no_depth_test = true
+
 [sub_resource type="BoxMesh" id="BoxMesh_div1a"]
+material = SubResource("StandardMaterial3D_swcir")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swcir"]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp3kdsjsocmpg"]
+
+[ext_resource type="Script" uid="uid://3lfkbbpiiq20" path="res://particle.gd" id="1_a85iw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxd2d"]
+
+[node name="Projectile" type="Node3D"]
+script = ExtResource("1_a85iw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.07503265, 0, 0, 0, 0.067452274, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_pxd2d")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
