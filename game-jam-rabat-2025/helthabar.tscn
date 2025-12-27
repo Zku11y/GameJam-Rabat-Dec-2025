@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxsmkwrae0ske"]
+
+[ext_resource type="Script" uid="uid://cybpdpmgvjin5" path="res://helthabar.gd" id="1_kl65w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_33pg5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqo4i"]
+bg_color = Color(0.44040614, 3.4894794e-07, 0.053093545, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18xre"]
+bg_color = Color(0, 0, 0.14509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs2po"]
+bg_color = Color(0.7294118, 0.39215687, 0.043137256, 1)
+shadow_color = Color(0, 0, 0, 0.06666667)
+shadow_offset = Vector2(0, 1)
+
+[node name="Helthabar" type="ProgressBar"]
+z_index = 1
+offset_right = 256.0
+offset_bottom = 5.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_33pg5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nqo4i")
+value = 67.0
+show_percentage = false
+script = ExtResource("1_kl65w")
+
+[node name="dmgbar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_18xre")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xs2po")
+value = 69.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
