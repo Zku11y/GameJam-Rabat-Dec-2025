@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://e2blkocqcr63"]
+[gd_scene load_steps=4 format=3 uid="uid://e2blkocqcr63"]
 
 [ext_resource type="PackedScene" uid="uid://b2k8p2oov605b" path="res://player.tscn" id="1_s5ofc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s5ofc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ivg18"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [node name="map" type="Node3D"]
 
@@ -15,9 +20,9 @@ use_collision = true
 size = Vector3(0.091796875, 1, 2.4702454)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3435774, -0.489, 0.256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.591342, -0.489, 0.256)
 use_collision = true
-size = Vector3(14.875916, 0.12841797, 4.4156494)
+size = Vector3(15.371445, 0.12841797, 4.4156494)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03265381, 2.0934613, 0.25567627)
@@ -67,9 +72,9 @@ use_collision = true
 size = Vector3(7.29216, 1, 0.09161377)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3435774, 2.0891132, 0.256)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4977064, 2.0891132, 0.256)
 use_collision = true
-size = Vector3(14.875916, 0.12841797, 4.4156494)
+size = Vector3(11.184174, 0.12841797, 4.4156494)
 
 [node name="Player" parent="." instance=ExtResource("1_s5ofc")]
 transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 0, 0, 0)
@@ -82,3 +87,46 @@ transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.96592593, 0, -0.96592593, 0.25
 
 [node name="SpotLight3D2" type="OmniLight3D" parent="SpotLight3D2"]
 transform = Transform3D(1, 0, 0, 0, 0.25881898, 0.9659258, 0, -0.9659258, 0.25881898, 3.4534302, -0.07025543, 0.0027426481)
+
+[node name="ts_node" type="Node3D" parent="."]
+transform = Transform3D(4.925, 0, 0, 0, 2.26, 0, 0, 0, 3.93, 14.314075, -0.036503702, 0.341)
+
+[node name="floor" type="MeshInstance3D" parent="ts_node"]
+transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 1, 0.073, -0.161, -0.024)
+mesh = SubResource("BoxMesh_s5ofc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ts_node/floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ivg18")
+
+[node name="wall" type="MeshInstance3D" parent="ts_node"]
+transform = Transform3D(0.9999998, 0, 0, 0, -2.1855695e-09, -1, 0, 0.05000001, -4.3711395e-08, 0.072999954, 0.2916642, -0.5278061)
+mesh = SubResource("BoxMesh_s5ofc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ts_node/wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ivg18")
+
+[node name="wall2" type="MeshInstance3D" parent="ts_node"]
+transform = Transform3D(0.99999976, 0, 0, 0, -2.1855695e-09, -1, 0, 0.050000012, -4.37114e-08, 0.072999954, 0.2916642, 0.48241574)
+mesh = SubResource("BoxMesh_s5ofc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ts_node/wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ivg18")
+
+[node name="wall3" type="MeshInstance3D" parent="ts_node"]
+transform = Transform3D(-4.3711378e-08, 0.05, -4.3711378e-08, 0, -2.18557e-09, -1, -1, -2.1855708e-09, 1.9106855e-15, 0.5669267, 0.29977018, -0.017058372)
+mesh = SubResource("BoxMesh_s5ofc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ts_node/wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ivg18")
+
+[node name="wall4" type="MeshInstance3D" parent="ts_node"]
+transform = Transform3D(-4.3711378e-08, 0.050000004, -4.371138e-08, 0, -2.18557e-09, -1, -0.9999999, -2.1855704e-09, 1.9106855e-15, -0.384295, 0.2916642, 0.003227353)
+mesh = SubResource("BoxMesh_s5ofc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ts_node/wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ivg18")
