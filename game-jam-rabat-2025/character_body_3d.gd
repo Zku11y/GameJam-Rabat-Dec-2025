@@ -1,10 +1,10 @@
 extends CharacterBody3D
 
-const WALK_SPEED = 2.0
-const RUN_SPEED = 5.0
+const WALK_SPEED = 1.0
+const RUN_SPEED = 3.0
 var SPEED = 2.0
-const JUMP_VELOCITY = 4.5
-const SENSITIVITY = 0.01
+const JUMP_VELOCITY = 3.0
+const SENSITIVITY = 0.007
 
 @onready var head : Node3D = $Node3D
 @onready var camera = $Node3D/Camera3D

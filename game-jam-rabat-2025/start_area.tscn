@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://nj20kia1nb73"]
+
+[ext_resource type="PackedScene" uid="uid://b2k8p2oov605b" path="res://player.tscn" id="1_n0eai"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6a6xy"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_n0eai"]
+sky_material = SubResource("ProceduralSkyMaterial_6a6xy")
+
+[sub_resource type="Environment" id="Environment_cyr3h"]
+background_mode = 2
+sky = SubResource("Sky_n0eai")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a6xy"]
+albedo_color = Color(0.01919998, 0.64, 0.64, 1)
+
+[node name="start_area" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cyr3h")
+
+[node name="ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.531128, -0.23622894, 9.556885)
+use_collision = true
+size = Vector3(23.858154, 0.5, 20.88623)
+material = SubResource("StandardMaterial3D_6a6xy")
+
+[node name="resting_room" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0627999, 13.893208)
+use_collision = true
+size = Vector3(5.7373047, 2.1306763, 5.4592285)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="resting_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27840614, -0.0065784454)
+operation = 2
+size = Vector3(5.531494, 1.6566162, 5.2509766)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="resting_room"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.083242506, -0.66051054, -2.6774817)
+operation = 2
+size = Vector3(0.52441406, 0.7944336, 0.119506836)
+
+[node name="hallway" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08359146, 0.55453753, 9.303944)
+use_collision = true
+size = Vector3(1, 1.1464844, 3.7718353)
+
+[node name="hallway" type="CSGBox3D" parent="hallway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110631645, -0.034718513)
+operation = 2
+size = Vector3(0.76953125, 0.9165039, 4.066345)
+
+[node name="control center" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4379728, 2.3031363, 4.9964395)
+use_collision = true
+size = Vector3(12.1698, 4.7585754, 5.1191406)
+
+[node name="control center" type="CSGBox3D" parent="control center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043977022, -0.7098775, -0.001440525)
+operation = 2
+size = Vector3(11.925747, 3.332676, 4.84375)
+
+[node name="door" type="CSGBox3D" parent="control center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5260215, -1.9102949, 2.4698625)
+operation = 2
+size = Vector3(0.48046875, 0.76538086, 0.27230835)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="control center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6970422, -0.6706548, 6.9959617)
+size = Vector3(6.7696533, 3.5869293, 9.208984)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="control center/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022928715, -0.060115457, -0.07143593)
+operation = 2
+size = Vector3(6.5621643, 3.363102, 9.092834)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="control center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7220123, -0.73696136, 2.4911304)
+operation = 2
+size = Vector3(6.5715837, 3.3200226, 0.51171875)
+
+[node name="secret" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1160364, 0, 0, 0, 0.93146694, 0, 0, 0, 1, -8.687819, 0.79920125, 14.887232)
+use_collision = true
+size = Vector3(1.4884033, 1.7842712, 3.1472168)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="secret"]
+transform = Transform3D(0.011797078, -1.0024867, 0, 1.2728938, 0.009290966, 0, 0, 0, 3.2895882, 1.749907, -0.8871836, 1.7078915)
+polygon = PackedVector2Array(0, 0, 0, 1, 1.3845937, 1.0293016, -0.030106744, -2.7497592)
+
+[node name="Player" parent="." instance=ExtResource("1_n0eai")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -1.4035819, 0.5684966, 15.3102)

@@ -17,6 +17,7 @@ script = ExtResource("1_4flbx")
 mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_4flbx")
 
 [node name="Node3D" type="Node3D" parent="CharacterBody3D"]
